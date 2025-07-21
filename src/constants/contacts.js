@@ -1,5 +1,3 @@
-export const PATH_DB = './src/db/db.json';
+// src/constants/contacts.js
 
-module.exports = {
-  PATH_DB,
-};
+export const PATH_DB = './src/db/db.json';

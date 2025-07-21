@@ -1,10 +1,10 @@
 import readline from 'readline';
-import { addOneContact } from './src/scripts/addOneContact.js';
-import { generateContacts } from './src/scripts/generateContacts.js';
-import { getAllContacts } from './src/scripts/getAllContacts.js';
-import { countContacts } from './src/scripts/countContacts.js';
-import { removeLastContact } from './src/scripts/removeLastContact.js';
-import { removeAllContacts } from './src/scripts/removeAllContacts.js';
+import { addOneContact } from './scripts/addOneContact.js';
+import { generateContacts } from './scripts/generateContacts.js';
+import { getAllContacts } from './scripts/getAllContacts.js';
+import { countContacts } from './scripts/countContacts.js';
+import { removeLastContact } from './scripts/removeLastContact.js';
+import { removeAllContacts } from './scripts/removeAllContacts.js';
 
 const rl = readline.createInterface({
   input: process.stdin,
