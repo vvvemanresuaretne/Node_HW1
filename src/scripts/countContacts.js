@@ -1,6 +1,6 @@
-const { readContacts } = require('../utils/readContacts');
+import { readContacts } from '../utils/readContacts.js';
 
-const countContacts = async () => {
+export const countContacts = async () => {
   try {
     const contacts = await readContacts();
     const count = contacts.length;
@@ -11,10 +11,7 @@ const countContacts = async () => {
   }
 };
 
-if (require.main === module) {
+// Аналог `require.main === module` для ES-модуля:
+if (import.meta.url === `file://${process.argv[1]}`) {
   countContacts();
 }
-
-module.exports = {
-  countContacts,
-};

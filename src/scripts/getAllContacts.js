@@ -1,6 +1,6 @@
-const { readContacts } = require('../utils/readContacts');
+import { readContacts } from '../utils/readContacts.js';
 
-const getAllContacts = async () => {
+export const getAllContacts = async () => {
   try {
     const contacts = await readContacts();
     console.log('📋 Список контактів:', contacts);
@@ -10,10 +10,7 @@ const getAllContacts = async () => {
   }
 };
 
-if (require.main === module) {
+// Якщо файл запускається напряму
+if (import.meta.url === `file://${process.argv[1]}`) {
   getAllContacts();
 }
-
-module.exports = {
-  getAllContacts,
-};

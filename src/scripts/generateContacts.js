@@ -1,10 +1,8 @@
+import { readContacts } from '../utils/readContacts.js';
+import { writeContacts } from '../utils/writeContacts.js';
+import { createFakeContact } from '../helpers/createFakeContact.js';
 
-
-const { readContacts } = require('../utils/readContacts');
-const { writeContacts } = require('../utils/writeContacts');
-const { createFakeContact } = require('../helpers/createFakeContact');
-
-const generateContacts = async (count) => {
+export const generateContacts = async (count) => {
   try {
     const existingContacts = await readContacts();
     const newContacts = [];
@@ -22,12 +20,8 @@ const generateContacts = async (count) => {
   }
 };
 
-// Якщо файл виконується напряму, запускаємо функцію з аргументом
-if (require.main === module) {
+// Якщо файл запускається напряму
+if (import.meta.url === `file://${process.argv[1]}`) {
   const count = parseInt(process.argv[2], 10) || 5;
   generateContacts(count);
 }
-
-module.exports = {
-  generateContacts,
-};

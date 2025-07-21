@@ -1,8 +1,8 @@
-const { readContacts } = require('../utils/readContacts');
-const { writeContacts } = require('../utils/writeContacts');
-const { createFakeContact } = require('../helpers/createFakeContact');
+import { readContacts } from '../utils/readContacts.js';
+import { writeContacts } from '../utils/writeContacts.js';
+import { createFakeContact } from '../helpers/createFakeContact.js';
 
-const addOneContact = async () => {
+export const addOneContact = async () => {
   try {
     const contacts = await readContacts();
     const newContact = createFakeContact();
@@ -14,10 +14,7 @@ const addOneContact = async () => {
   }
 };
 
-if (require.main === module) {
+// Аналог `require.main === module` в ES-модулях:
+if (import.meta.url === `file://${process.argv[1]}`) {
   addOneContact();
 }
-
-module.exports = {
-  addOneContact,
-};

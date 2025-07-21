@@ -1,6 +1,6 @@
-const { writeContacts } = require('../utils/writeContacts');
+import { writeContacts } from '../utils/writeContacts.js';
 
-const removeAllContacts = async () => {
+export const removeAllContacts = async () => {
   try {
     await writeContacts([]);
     console.log('🗑️ Усі контакти успішно видалено.');
@@ -9,10 +9,7 @@ const removeAllContacts = async () => {
   }
 };
 
-if (require.main === module) {
+// Якщо файл запускається напряму
+if (import.meta.url === `file://${process.argv[1]}`) {
   removeAllContacts();
 }
-
-module.exports = {
-  removeAllContacts,
-};

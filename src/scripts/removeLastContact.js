@@ -1,7 +1,7 @@
-const { readContacts } = require('../utils/readContacts');
-const { writeContacts } = require('../utils/writeContacts');
+import { readContacts } from '../utils/readContacts.js';
+import { writeContacts } from '../utils/writeContacts.js';
 
-const removeLastContact = async () => {
+export const removeLastContact = async () => {
   try {
     const contacts = await readContacts();
 
@@ -19,10 +19,7 @@ const removeLastContact = async () => {
   }
 };
 
-if (require.main === module) {
+// Запуск напряму
+if (import.meta.url === `file://${process.argv[1]}`) {
   removeLastContact();
 }
-
-module.exports = {
-  removeLastContact,
-};
